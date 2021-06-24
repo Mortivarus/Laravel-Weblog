@@ -11,9 +11,3 @@
         <a href="/">Home</a>
         
     </nav>
-
-    @yield('content')
-
-
-</body>
-</html>

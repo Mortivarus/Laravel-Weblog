@@ -1,9 +1,10 @@
-@extends('../layouts/app')
-
-@section('content')
+@include('layouts/header')
 
 
-//Form for filling in Title, Content, adding image
 
 
-@endsection
+@include('comments/view')
+
+
+
+@include('layouts/footer')

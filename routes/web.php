@@ -35,3 +35,6 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.
 
 //Links for the comments
 
+//Links for users
+
+Route::get('/login', [PostController::class, 'login'])->name('user.login');

@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(){
-        return view('index');
+        return view('index', [
+            'posts' => Post::take(3)->latest()->get()
+        ]);
     }
 
-    public function view(){
-        return view('posts/view');
+    public function view(Post $post){
+        return view('posts/view', compact('post'));
     }
 
     public function create(){
@@ -33,6 +35,10 @@ class PostController extends Controller
 
     public function destroy(){
         return 'Destroy';
+    }
+
+    public function login(){
+        return view('users/login');
     }
 
 }

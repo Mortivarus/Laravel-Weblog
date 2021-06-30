@@ -1,26 +1,5 @@
 @include('layouts/header')
 
-
-<div id="header" class="container">
-	<div id="logo">
-		<h1><a href="https://script.nl/"> &lt;Script&gt; Industries</a></h1>
-	</div>
-	<div id="menu">
-		<ul>
-			<li class="current_page_item"><a href="/" accesskey="1" title="">Home</a></li>
-			<li><a href="/login" accesskey="2" title="">Login</a></li>
-			<li><a href="#" accesskey="3" title="">Write Post</a></li>
-		</ul>
-	</div>
-</div>
-<div id="header-featured">
-	<div id="banner-wrapper">
-		<div id="banner" class="container">
-			<h2>Charlie's Blog</h2>
-			<p>This is a simple blog written by a simple-minded person. Have a nice day :)</p>
-			<a href="#" class="button">Etiam posuere</a> </div>
-	</div>
-</div>
 <div id="wrapper">
 	<div id="page" class="container">
 		<div id="content">
@@ -64,9 +43,5 @@
 		</div>
 	</div>
 </div>
-<div id="copyright" class="container">
-	<p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by TEMPLATED.</p>
-</div>
-
 
 @include('layouts/footer')

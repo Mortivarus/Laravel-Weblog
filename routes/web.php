@@ -19,8 +19,6 @@ use App\Http\Controllers\CommentController;
 //Links for the posts
 Route::get('/', [PostController::class, 'index'])->name('posts.index'); //Land on the index
 
-Route::get('/posts', [PostController::class, 'index'])->name('posts.index'); //Land on the index
-
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create'); //Land on the 'create article' page
 
 Route::get('/posts/{post}', [PostController::class, 'view'])->name('posts.view'); //Land on the 'view' page of the right article 

@@ -3,7 +3,7 @@
 
 
 
-@include('comments/view')
+
 
 
 

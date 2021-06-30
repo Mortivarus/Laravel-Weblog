@@ -11,7 +11,22 @@
 
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a>
-        
-    </nav>
+    <div id="header" class="container">
+        <div id="logo">
+            <h1><a href="https://script.nl/"> &lt;Script&gt; Industries</a></h1>
+        </div>
+        <div id="menu">
+            <ul>
+                <li class="{{ Request::is('/') ? 'current_page_item' : '' }}"><a href="{{route('posts.index')}}" accesskey="1" title="">Home</a></li>
+                <li class="{{ Request::is('login') ? 'current_page_item' : '' }}"><a href="{{route('user.login')}}" accesskey="2" title="">Login</a></li>
+                <li class="{{ Request::is('posts/create') ? 'current_page_item' : '' }}"><a href="{{route('posts.create')}}" accesskey="3" title="">Write Post</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="header-featured">
+        <div id="banner-wrapper">
+            <div id="banner" class="container">
+                <h2>Charlie's Blog</h2>
+                <p>This is a simple blog written by a simple-minded person. Have a nice day :)</p>
+        </div>
+    </div>

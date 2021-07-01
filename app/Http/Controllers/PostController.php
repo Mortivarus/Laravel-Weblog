@@ -22,23 +22,52 @@ class PostController extends Controller
     }
 
     public function store(){
-        return 'Store';
+        request()->validate([
+            'title'=> 'required',
+            'excerpt'=> 'required',
+            'body'=> 'required',
+            'category' => 'required'
+        ]);
+
+        Post::create([
+            'title'=> request('title'),
+            'excerpt'=> request('excerpt'),
+            'body'=> request('body'),
+            'category' => request('category')
+        ]);
+
+        return redirect()->route('posts.index');
+    }
+    
+    public function edit(Post $post){
+        return view('posts/edit', compact('post'));
     }
 
-    public function edit(){
-        return 'Edit';
+    public function update(Post $post){
+        request()->validate([
+            'title'=> 'required',
+            'excerpt'=> 'required',
+            'body'=> 'required',
+            'category' => 'required'
+        ]);
+
+        $post->update([
+            'title'=> request('title'),
+            'excerpt'=> request('excerpt'),
+            'body'=> request('body'),
+            'category' => request('category')
+        ]);
+
+        return redirect()->route('posts.index');
     }
 
-    public function update(){
-        return 'Update';
-    }
+    public function destroy(Post $post){
+        $post->delete();
+        return redirect()->route('posts.index');
 
-    public function destroy(){
-        return 'Destroy';
     }
 
     public function login(){
         return view('users/login');
     }
-
 }

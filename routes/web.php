@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,8 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.
 
 //Links for users
 
-Route::get('/login', [PostController::class, 'login'])->name('user.login');
+Route::get('/login', [PostController::class, 'login'])->name('user.login'); //
+
+Route::get('/register', [RegisterController::class, 'create'])->name('user.create');
+
+Route::post('/register', [RegisterController::class, 'store'])->name('user.store');

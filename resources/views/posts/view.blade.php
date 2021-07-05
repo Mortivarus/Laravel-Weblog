@@ -1,4 +1,4 @@
-@include('../layouts/header')
+@include('../components/header')
 
 <div id="wrapper">
 	<div id="page" class="container">
@@ -33,4 +33,4 @@
 </div>
 
 
-@include('../layouts/footer')
+@include('../components/footer')

@@ -19,7 +19,8 @@
             <ul>
                 <li class="{{ Request::is('/') ? 'current_page_item' : '' }}"><a href="{{route('posts.index')}}" accesskey="1" title="">Home</a></li>
                 <li class="{{ Request::is('login') ? 'current_page_item' : '' }}"><a href="{{route('user.login')}}" accesskey="2" title="">Login</a></li>
-                <li class="{{ Request::is('posts/create') ? 'current_page_item' : '' }}"><a href="{{route('posts.create')}}" accesskey="3" title="">Write Post</a></li>
+                <li class="{{ Request::is('register') ? 'current_page_item' : '' }}"><a href="{{route('user.create')}}" accesskey="3" title="">Register</a></li>
+                <li class="{{ Request::is('posts/create') ? 'current_page_item' : '' }}"><a href="{{route('posts.create')}}" accesskey="4" title="">Write Post</a></li>
             </ul>
         </div>
     </div>

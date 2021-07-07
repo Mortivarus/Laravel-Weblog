@@ -1,4 +1,4 @@
-@include('layouts/header')
+@include('../components/header')
 
 <div id="wrapper">
 	<div id="page" class="container">
@@ -15,7 +15,7 @@
             
                 <label for="password">Password</label><br>
                 <input 
-                    type="text" 
+                    type="password" 
                     id="password" 
                     name="password"
                     ><br>
@@ -26,4 +26,4 @@
 	</div>
 </div>
 
-@include('layouts/footer')
+@include('../components/footer')

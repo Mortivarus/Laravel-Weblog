@@ -31,10 +31,10 @@
 
                 <label for="password">Password</label><br>
                 <input 
-                    type="text" 
+                    type="password" 
                     id="password" 
                     name="password"
-                    value="{{ old('password') }}"><br>
+                    required><br>
             
                 @if($errors->has('password'))
                     <p class="help is-danger">{{ $errors->first('password') }}</p>
@@ -42,7 +42,7 @@
 
                 <label for="email">E-mail</label><br>
                 <input 
-                    type="text" 
+                    type="email" 
                     id="email" 
                     name="email"
                     value="{{ old('email') }}"><br>
@@ -57,10 +57,5 @@
 	</div>
 
 </div>
-
-
-
-
-
 
 @include('../components/footer')

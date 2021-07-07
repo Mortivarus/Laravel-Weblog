@@ -36,7 +36,7 @@ class PostController extends Controller
             'category' => request('category')
         ]);
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index'); //Re-direct to the main page
     }
     
     public function edit(Post $post){
@@ -58,12 +58,12 @@ class PostController extends Controller
             'category' => request('category')
         ]);
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index'); //Re-direct to the main page
     }
 
     public function destroy(Post $post){
         $post->delete();
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index'); //Re-direct to the main page
 
     }
 

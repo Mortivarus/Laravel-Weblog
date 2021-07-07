@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +37,13 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.
 
 //Links for users
 
-Route::get('/login', [PostController::class, 'login'])->name('user.login'); //
 
-Route::get('/register', [RegisterController::class, 'create'])->name('user.create');
+Route::get('register', [RegisterController::class, 'create'])->name('user.create')->middleware('guest');
 
-Route::post('/register', [RegisterController::class, 'store'])->name('user.store');
+Route::post('register', [RegisterController::class, 'store'])->name('user.store')->middleware('guest');
+
+Route::post('logout',[SessionsController::class, 'destroy'])->name('session.logout')->middleware('auth');
+
+Route::get('login', [SessionsController::class, 'create'])->name('session.create')->middleware('guest'); //
+
+Route::post('login', [SessionsController::class, 'store'])->name('session.login')->middleware('guest'); //

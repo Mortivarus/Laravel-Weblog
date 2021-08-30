@@ -12,13 +12,18 @@ class SessionsController extends Controller{
 
     public function store(){
         $attributes = request()->validate([
-            'username' => 'required|exists:users,username',
-            'password' => 'required|exists:users,password'
+            'username' => 'required',
+            'password' => 'required'
         ]);
 
         if(auth()->attempt($attributes)){
-            return redirect()->route('posts.index');
+            session()->regenerate();
+
+            return redirect()->route('posts.index')->with('success', 'Welcome Back!');
         }
+
+        return back()->withErrors(['password' => 'Your provided credentials could not be verified.']);
+        return back()->withErrors(['username' => 'Your provided credentials could not be verified.']);
 
     }
 

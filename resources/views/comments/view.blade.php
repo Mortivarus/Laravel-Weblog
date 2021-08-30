@@ -31,6 +31,7 @@
                 <div class="comment">
                     <p>{{$comment['content']}}</p>
                     <p><strong>{{$comment['username']}}</strong></p>
+
                 </div>
             @endforeach
         </div>

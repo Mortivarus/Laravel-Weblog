@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class PostFactory extends Factory
 {
@@ -24,6 +25,7 @@ class PostFactory extends Factory
         return [
             'title' => 'Lorem Ipsum',
             'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nulla ante, elementum et mi at, luctus hendrerit diam.',
+            'slug' => Str::slug($this->faker->name),
             'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vestibulum ex sed mi posuere, eget rutrum nisi luctus. Quisque ultrices orci ac erat placerat, a pretium est aliquet. Fusce facilisis orci in euismod imperdiet. Sed ullamcorper scelerisque lectus ac fringilla. Vestibulum feugiat accumsan erat et sodales. Aliquam imperdiet egestas erat, non auctor nunc. Nam at nulla viverra, congue eros sit amet, ullamcorper metus. Aliquam vitae dolor felis. Integer sed malesuada augue, non aliquam enim. Sed in erat imperdiet, varius ante ac, dapibus mauris. Morbi ornare felis arcu, maximus aliquam nunc faucibus sit amet. Phasellus viverra auctor mauris sit amet porta.
 
             Phasellus ac justo ut nisl sollicitudin tristique vel in lectus. Fusce placerat ex in orci fermentum posuere. Sed vel eleifend lectus. Cras vehicula massa eu nulla vehicula, in egestas libero lacinia. Nunc non justo id ex sollicitudin bibendum ut non augue. In at sollicitudin augue, vitae porta sem. Nam quis sapien ac erat volutpat condimentum. Praesent urna risus, sagittis vitae eros ac, consectetur aliquam libero. Phasellus dignissim ipsum diam, a malesuada turpis pulvinar et. Praesent enim justo, tempor eu congue eget, suscipit quis nunc.

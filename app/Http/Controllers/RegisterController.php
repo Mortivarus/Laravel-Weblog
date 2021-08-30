@@ -18,19 +18,14 @@ class RegisterController extends Controller
     }
 
     public function store(){
-        request()->validate([   //Validate register input
-            'name'=> 'required',
-            'username'=> 'required',
+        $attributes = request()->validate([   //Validate register input
+            'name'=> 'required|unique:users,name',
+            'username'=> 'required|unique:users,username',
             'email'=> 'required|email',
             'password' => 'required'
         ]);
 
-        $user = User::create([    //After validation make a new user
-            'name'=> request('name'),
-            'username'=> request('username'),
-            'email'=> request('email'),
-            'password' => request('password')
-        ]);
+        $user = User::create($attributes);
 
         session()->flash('success', 'Your account has been created.');
 

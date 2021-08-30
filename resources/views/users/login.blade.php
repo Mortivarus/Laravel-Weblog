@@ -3,7 +3,7 @@
 <div id="wrapper">
 	<div id="page" class="container">
 		<div class="form">
-            <form method="post" action="#">
+            <form method="post" action='/login'>
                 @csrf
             
                 <label for="username">Username</label><br>
@@ -12,6 +12,10 @@
                     id="username" 
                     name="username"
                     ><br>
+
+                @error('username')
+                   {{$message}}
+                @enderror
             
                 <label for="password">Password</label><br>
                 <input 
@@ -19,6 +23,10 @@
                     id="password" 
                     name="password"
                     ><br>
+                @error('password')
+                    {{$message}}
+                @enderror
+                
             
                 <input type="submit" value="Login">
             </form>

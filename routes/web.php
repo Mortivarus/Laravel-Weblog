@@ -35,6 +35,11 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.
 
 //Links for the comments
 
+Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name('comments.create');
+
+
+
+
 //Links for users
 
 

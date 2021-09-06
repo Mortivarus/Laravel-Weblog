@@ -18,6 +18,7 @@
             <div id="menu">
                 <ul>
                     <li class="{{ Request::url() === route('posts.index') ? 'current_page_item' : '' }}"><a href="{{route('posts.index')}}" accesskey="1" title="">Home</a></li>
+                    <li class="{{ Request::url() === route('posts.index') ? 'current_page_item' : '' }}"><a href="{{route('posts.index')}}" accesskey="1" title="">Home</a></li>
                     @guest 
                         <li class="{{ Request::url() === route('session.create') ? 'current_page_item' : '' }}"><a href="{{route('session.create')}}" accesskey="2" title="">Login</a></li>
                         <li class="{{ Request::url() === route('user.create') ? 'current_page_item' : '' }}"><a href="{{route('user.create')}}" accesskey="3" title="">Register</a></li>

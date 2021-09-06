@@ -14,7 +14,9 @@ class PostController extends Controller
     }
 
     public function view(Post $post){
-        return view('posts/view', compact('post'));
+        return view('posts/view', compact('post'), [
+            'posts' => Post::take(3)->latest()->get()
+        ]);
     }
 
     public function create(){

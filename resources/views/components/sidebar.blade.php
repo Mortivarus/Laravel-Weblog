@@ -4,10 +4,11 @@
             <li class="first">
                 <h3>{{$post->title}}</h3>
                 <p><a href="posts/{{$post->id}}">{{$post->excerpt}}</a></p>
+                <p>{{$post->created_at->diffForHumans()}}, category: {{$post->category}}</p>
             </li>
         @endforeach
     </ul>
-    <div id="stwo-col">
+    {{-- <div id="stwo-col">
         <div class="sbox1">
             <h2>Etiam rhoncus</h2>
             <ul class="style2">
@@ -26,5 +27,5 @@
                 <li><a href="#">Amet turpis feugiat amet</a></li>
             </ul>
         </div>
-    </div>
+    </div> --}}
 </div>

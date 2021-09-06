@@ -9,13 +9,19 @@ class PostController extends Controller
 {
     public function index(){
         return view('index', [
-            'posts' => Post::take(3)->latest()->get()
+            'posts' => Post::take(5)->latest()->get()
         ]);
     }
 
     public function view(Post $post){
         return view('posts/view', compact('post'), [
-            'posts' => Post::take(3)->latest()->get()
+            'posts' => Post::take(5)->latest()->get()
+        ]);
+    }
+
+    public function search(Post $post){
+        return view('search/view', [
+            'posts' => Post::latest()->get()
         ]);
     }
 

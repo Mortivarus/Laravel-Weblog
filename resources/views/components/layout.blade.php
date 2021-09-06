@@ -18,14 +18,14 @@
             <div id="menu">
                 <ul>
                     <li class="{{ Request::url() === route('posts.index') ? 'current_page_item' : '' }}"><a href="{{route('posts.index')}}" accesskey="1" title="">Home</a></li>
-                    <li class="{{ Request::url() === route('posts.index') ? 'current_page_item' : '' }}"><a href="{{route('posts.index')}}" accesskey="1" title="">Home</a></li>
+                    <li class="{{ Request::url() === route('posts.search') ? 'current_page_item' : '' }}"><a href="{{route('posts.search')}}" accesskey="2" title="">Search</a></li>
                     @guest 
-                        <li class="{{ Request::url() === route('session.create') ? 'current_page_item' : '' }}"><a href="{{route('session.create')}}" accesskey="2" title="">Login</a></li>
-                        <li class="{{ Request::url() === route('user.create') ? 'current_page_item' : '' }}"><a href="{{route('user.create')}}" accesskey="3" title="">Register</a></li>
+                        <li class="{{ Request::url() === route('session.create') ? 'current_page_item' : '' }}"><a href="{{route('session.create')}}" accesskey="3" title="">Login</a></li>
+                        <li class="{{ Request::url() === route('user.create') ? 'current_page_item' : '' }}"><a href="{{route('user.create')}}" accesskey="4" title="">Register</a></li>
                     @endguest
                     
                     @auth
-                        <li class="{{ Request::url() === route('posts.create') ? 'current_page_item' : '' }}"><a href="{{route('posts.create')}}" accesskey="4" title="">Write Post</a></li>
+                        <li class="{{ Request::url() === route('posts.create') ? 'current_page_item' : '' }}"><a href="{{route('posts.create')}}" accesskey="5" title="">Write Post</a></li>
                         <li>
                             <form action="/logout" method="post">
                                 @csrf

@@ -33,6 +33,10 @@ Route::patch('/posts/{post}', [PostController::class, 'update'])->name('posts.up
 
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy'); //Remove the article
 
+Route::get('/search', [PostController::class, 'search'])->name('posts.search');
+
+Route::get('categories/{category}', [CategoryController::class, 'posts'])->name('posts.category');
+
 //Links for the comments
 
 Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name('comments.create');

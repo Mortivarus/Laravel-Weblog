@@ -15,7 +15,8 @@ class PostController extends Controller
 
     public function view(Post $post){
         return view('posts/view', compact('post'), [
-            'posts' => Post::take(5)->latest()->get()
+            'posts' => Post::take(5)->latest()->get(),
+            'post' => $post
         ]);
     }
 

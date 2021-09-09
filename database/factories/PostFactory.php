@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Post;
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -26,9 +28,9 @@ class PostFactory extends Factory
             'user_id' => User::factory(),
             'category_id' => Category::factory(),
             'title' => $this->faker->sentence(),
-            'excerpt' => '<p>' . implode('</p><p>', $this->faker->paragraphs(2)) . '</p>',
+            'excerpt' => $this->faker->paragraphs(2),
             'slug' => $this->faker->slug(),
-            'content' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
+            'content' => $this->faker->paragraphs(6),
             'category' => 'lipsum'
         ];
     }

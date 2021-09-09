@@ -21,5 +21,5 @@
 			</form>
 		</p>
 	</x-content>
-	@include('components.sidebar')
+	<x-sidebar :posts="$posts"/>
 </x-layout>

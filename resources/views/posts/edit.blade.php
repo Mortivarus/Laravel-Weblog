@@ -1,6 +1,6 @@
 <x-layout>
     <h1>Edit Post</h1>
-    <form method="post" action="/posts/{{$post->id}}">
+    <form method="post" action="/posts/{{$post->slug}}">
         @csrf
         @method('PATCH')
     
@@ -26,15 +26,15 @@
             <p class="help is-danger">{{ $errors->first('excerpt') }}</p>
         @endif
 
-        <label for="excerpt">Body</label><br>
+        <label for="excerpt">Content</label><br>
         <input 
             type="text" 
-            id="body" 
-            name="body"
-            value="{{ $post->body }}"><br>
+            id="content" 
+            name="content"
+            value="{{ $post->content }}"><br>
     
-        @if($errors->has('body'))
-            <p class="help is-danger">{{ $errors->first('body') }}</p>
+        @if($errors->has('content'))
+            <p class="help is-danger">{{ $errors->first('content') }}</p>
         @endif
 
         <label for="excerpt">Category</label><br>

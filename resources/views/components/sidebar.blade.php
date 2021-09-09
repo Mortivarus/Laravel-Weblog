@@ -3,7 +3,7 @@
         @foreach ($posts as $post)
             <li class="first">
                 <h3>{{$post->title}}</h3>
-                <p><a href="posts/{{$post->id}}">{{$post->excerpt}}</a></p>
+                <p><a href="posts/{{$post->slug}}">{{$post->excerpt}}</a></p>
                 <p>{{$post->created_at->diffForHumans()}}, category: {{$post->category}}</p>
             </li>
         @endforeach

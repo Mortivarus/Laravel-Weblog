@@ -17,12 +17,11 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id');
-            $table->string('slug')->unique();
             $table->timestamps();
             $table->string('title');
             $table->text('excerpt');
             $table->text('content');
-            $table->string('category');
+            // $table->string('category');
         });
     }
 

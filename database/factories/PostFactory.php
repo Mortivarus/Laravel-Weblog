@@ -28,10 +28,8 @@ class PostFactory extends Factory
             'user_id' => User::factory(),
             'category_id' => Category::factory(),
             'title' => $this->faker->sentence(),
-            'excerpt' => $this->faker->paragraphs(2),
-            'slug' => $this->faker->slug(),
-            'content' => $this->faker->paragraphs(6),
-            'category' => 'lipsum'
+            'excerpt' => implode($this->faker->paragraphs(2)),
+            'content' => implode($this->faker->paragraphs(6))
         ];
     }
 }

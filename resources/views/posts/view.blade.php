@@ -7,14 +7,14 @@
 			<p>
 				{{$post->content}}
 			</p>
-		<strong>Category: {{$post->category}}</strong>
+		<strong>Category: </strong>
 
 		<p>
-			<form method="get" action="/posts/{{ $post->slug }}/edit">
+			<form method="get" action="/posts/{{ $post->id }}/edit">
 				@csrf
 				<input type="submit" value="Edit Post" class="button">
 			</form>
-			<form method="post" action="/posts/{{ $post->slug }}">
+			<form method="post" action="/posts/{{ $post->id }}">
 				@csrf
 				@method('DELETE')
 				<input type="submit" value="Delete Post" class="button">

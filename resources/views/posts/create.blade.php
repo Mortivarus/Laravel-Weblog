@@ -25,18 +25,18 @@
                 <p class="help is-danger">{{ $errors->first('excerpt') }}</p>
             @endif
 
-            <label for="excerpt">Body</label><br>
+            <label for="content">Content</label><br>
             <input 
                 type="text" 
-                id="body" 
-                name="body"
-                value="{{ old('body') }}"><br>
+                id="content" 
+                name="content"
+                value="{{ old('content') }}"><br>
 
-            @if($errors->has('body'))
-                <p class="help is-danger">{{ $errors->first('body') }}</p>
+            @if($errors->has('content'))
+                <p class="help is-danger">{{ $errors->first('content') }}</p>
             @endif
 
-            <label for="excerpt">Category</label><br>
+            {{-- <label for="category">Category</label><br>
             <input 
                 type="text" 
                 id="category" 
@@ -45,7 +45,7 @@
 
             @if($errors->has('category'))
                 <p class="help is-danger">{{ $errors->first('category') }}</p>
-            @endif
+            @endif --}}
 
             <input type="submit">
         </form>

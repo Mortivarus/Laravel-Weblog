@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -34,15 +35,15 @@ class PostController extends Controller
         request()->validate([
             'title'=> 'required',
             'excerpt'=> 'required',
-            'body'=> 'required',
-            'category' => 'required'
+            'content'=> 'required'
         ]);
 
         Post::create([
             'title'=> request('title'),
             'excerpt'=> request('excerpt'),
-            'body'=> request('body'),
-            'category' => request('category')
+            'content'=> request('content'),
+            'user_id' => Auth::user()->id,
+            'category_id'=> 1
         ]);
 
         return redirect()->route('posts.index'); //Re-direct to the main page
@@ -56,15 +57,13 @@ class PostController extends Controller
         request()->validate([
             'title'=> 'required',
             'excerpt'=> 'required',
-            'body'=> 'required',
-            'category' => 'required'
+            'content'=> 'required',
         ]);
 
         $post->update([
             'title'=> request('title'),
             'excerpt'=> request('excerpt'),
-            'body'=> request('body'),
-            'category' => request('category')
+            'content'=> request('content'),
         ]);
 
         return redirect()->route('posts.index'); //Re-direct to the main page

@@ -78,12 +78,19 @@ a:hover
 .commentSection h3{
 	text-align: center;	
 	background-color: #464646;
-	padding: 7px;
-	margin: 5px 0px 5px 0px;
+	padding: 10px;
+	margin: 10px 0px 10px 0px;
 	border-radius:10px;
 	color: #FFFFFF;
 }
 
+.button-left{
+	float: left;
+}
+
+.button-right{
+	float: right;
+}
 
 
 /*********************************************************************************/
@@ -105,7 +112,7 @@ a:hover
 .roundimg img{
 	border-radius: 10px;
 	width: 100%;
-	margin: 10px 0px 10px 0px;
+	margin: 1px 0px 5px 0px;
 }
 
 .image-full
@@ -620,7 +627,7 @@ ul.contact li a.icon-rss:before
 	#stwo-col .sbox1
 	{
 		float: left;
-		width: 210px;
+		/* width: 210px; */
 	}
 
 	#stwo-col .sbox2

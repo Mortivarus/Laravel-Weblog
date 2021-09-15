@@ -3,8 +3,12 @@
         @foreach ($posts as $post)
             <li class="first">
                 <h3>{{$post->title}}</h3>
-                <p><a href="posts/{{$post->id}}">{{$post->excerpt}}</a></p>
-                <p>{{$post->created_at->diffForHumans()}}</p>
+                <p><a href="/posts/{{$post->id}}">{{$post->excerpt}}</a></p>
+                <p>
+                    <strong>
+                    Created {{$post->created_at->diffForHumans()}}, Category: {{$post->category->name}}
+                    </strong>
+                </p>
             </li>
         @endforeach
     </ul>

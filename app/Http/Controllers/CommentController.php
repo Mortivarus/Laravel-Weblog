@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 
 class CommentController extends Controller
@@ -13,7 +14,7 @@ class CommentController extends Controller
             ]);
     
             $post->comments()->create([
-                'user_id' => request()->user()->id,
+                'user_id' => Auth::user()->id,
                 'content' => request('content')
             ]);
     

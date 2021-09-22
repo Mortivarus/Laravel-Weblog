@@ -1,12 +1,15 @@
 <x-layout>
 	<x-content>
-		<h1>{{$post->title}}</h1>
+		<h3>{{$post->title}}</h3>
+		<br>
 		<div class="roundimg">
 			<img src="/images/banner.jpg">
 		</div>
+		<br>
 			<p>
 				{{$post->content}}
 			</p>
+			<br>
 		<strong>Category: {{$post->category->name}}</strong>
 	
 	

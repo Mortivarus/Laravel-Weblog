@@ -9,6 +9,7 @@
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <link href="/css/templated/default.css" rel="stylesheet"/>
         <link href="/css/templated/fonts.css" rel="stylesheet"/>
+        <script src="//unpkg.com/alpinejs" defer></script>
 
     </head>
     <body>

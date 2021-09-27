@@ -9,3 +9,4 @@
     {{ $attributes(['value' => old($name)]) }}><br>
 
 <x-form.error name="{{$name}}"/> 
+<br>

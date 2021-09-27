@@ -1,6 +1,8 @@
 <x-layout>
 	<x-content>
-		<h3>{{$post->title}}</h3>
+		<div class="text-3xl">
+			<h1>{{$post->title}}</h1>
+		</div>
 		<br>
 		<div class="roundimg">
 			<img src="/images/banner.jpg">
@@ -10,7 +12,7 @@
 				{{$post->content}}
 			</p>
 			<br>
-		<strong>Category: {{$post->category->name}}</strong>
+		<strong>By {{$post->author->name}}, Category: {{$post->category->name}}</strong>
 	
 	
 	@auth	
@@ -44,5 +46,5 @@
 		@endforeach
 	</x-content>
 
-	<x-sidebar :posts="$posts"/>
+	<x-sidebar :posts="$posts" :categories="$categories"/>
 </x-layout>

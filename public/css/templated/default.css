@@ -80,6 +80,10 @@ a:hover
 	color: #FFFFFF;
 }
 
+.bg-gray-custom{
+	background-color: #464646;
+}
+
 .button-left{
 	float: left;
 }

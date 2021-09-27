@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -10,14 +11,17 @@ class PostController extends Controller
 {
     public function index(){
         return view('index', [
-            'posts' => Post::take(5)->latest()->get()
+            'posts' => Post::take(5)->latest()->get(),
+            'categories' => Category::all()
+
         ]);
     }
 
     public function view(Post $post){
         return view('posts/view', compact('post'), [
             'posts' => Post::take(5)->latest()->get(),
-            'post' => $post
+            'post' => $post,
+            'categories' => Category::all()
         ]);
     }
 

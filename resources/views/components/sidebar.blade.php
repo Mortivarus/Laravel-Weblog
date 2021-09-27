@@ -1,9 +1,29 @@
 <div id="sidebar">
+
+    {{-- <ul>
+        @foreach ($categories as $category)
+            <li>{{$category->name}}</li>
+        @endforeach
+    </ul> --}}
+
+    <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
+        <div x-data="{ show:false }">
+            <button @click="show = !show">Categories</button>
+    
+            <div x-show="show">
+                @foreach ($categories as $category)
+                    <a href="#" class="block">{{$category->name}}</a>
+                @endforeach
+
+            </div>
+        </div>
+    </div>
+
     <ul class="style1">
         @foreach ($posts as $post)
             <li class="first">
                 <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
-                <p>{{$post->excerpt}}</p>
+                <p>{{$post->excerpt}}</p><br>
                 <p>
                     <strong>
                     Created {{$post->created_at->diffForHumans()}}, Category: {{$post->category->name}}

@@ -12,27 +12,25 @@
 				{{$post->content}}
 			</p>
 			<br>
-		<strong>By {{$post->author->name}}, Category: {{$post->category->name}}</strong>
+		<strong>By {{$post->author->name}}, Category: {{$post->category->name}}</strong><br><br>
 	
 	
-	@auth	
-		<p>
+	@auth
+		<div class="flex flex-row gap-1">
 			<div>
-				<div class="button-left">
-					<form method="get" action="/posts/{{ $post->id }}/edit">
-						@csrf
-						<input type="submit" value="Edit Post" class="button">
-					</form>
-				</div>
-				<div>
-					<form method="post" action="/posts/{{ $post->id }}">
-						@csrf
-						@method('DELETE')
-						<input type="submit" value="Delete Post" class="button">
-					</form>
-				</div>
+				<form method="get" action="/posts/{{ $post->id }}/edit">
+					@csrf
+					<x-button>Edit Post</x-button>
+				</form>
 			</div>
-		</p>
+			<div>
+				<form method="post" action="/posts/{{ $post->id }}">
+					@csrf
+					@method('DELETE')
+					<x-button>Delete Post</x-button>
+				</form>
+			</div>
+		</div>
 	@endauth
 
 	<x-comment-create :post="$post"/>

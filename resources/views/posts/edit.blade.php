@@ -3,41 +3,12 @@
     <form method="post" action="/posts/{{ $post->id }}">
         @csrf
         @method('PATCH')
-    
-        <label for="title">Title</label><br>
-        <input 
-            type="text" 
-            id="title" 
-            name="title"
-            value="{{ $post->title }}"><br>
-    
-        @if($errors->has('title'))
-            <p class="help is-danger">{{ $errors->first('title') }}</p>
-        @endif
 
-        <label for="excerpt">Excerpt</label><br>
-        <input 
-            type="text" 
-            id="excerpt" 
-            name="excerpt"
-            value="{{ $post->excerpt }}"><br>
-    
-        @if($errors->has('excerpt'))
-            <p class="help is-danger">{{ $errors->first('excerpt') }}</p>
-        @endif
+        <x-form.input name="title" label="title" :value="old('title', $post->title)" required/>
+        <x-form.input name="excerpt" label="excerpt" :value="old('excerpt', $post->excerpt)" required/>
+        <x-form.input name="content" label="content" :value="old('content', $post->content)" required/>
+        <x-form.input name="category" label="category" :value="old('category', $post->category->name)" required/>
 
-        <label for="content">Content</label><br>
-        <input 
-            type="text" 
-            id="content" 
-            name="content"
-            value="{{ $post->content }}"><br>
-    
-        @if($errors->has('content'))
-            <p class="help is-danger">{{ $errors->first('content') }}</p>
-        @endif
-
-
-        <input type="submit">
+        <x-button>Submit</x-button>
     </form>
 </x-layout>

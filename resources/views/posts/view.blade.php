@@ -33,14 +33,14 @@
 		</div>
 	@endauth
 
-	<x-comment-create :post="$post"/>
+	<x-comments.create :post="$post"/>
 		
 		<div class="commentSection">
 			<h3>Comments</h3>
 		</div>
-		
+
 		@foreach ($post->comments as $comment)
-			<x-comment-view :comment="$comment"/>
+			<x-comments.view :comment="$comment"/>
 		@endforeach
 	</x-content>
 

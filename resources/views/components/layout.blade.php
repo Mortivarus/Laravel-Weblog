@@ -17,7 +17,7 @@
             <div id="logo">
                 <h1><a href="https://script.nl/"> &lt;Script&gt; Industries</a></h1>
             </div>
-            <x-header-menu/>
+            <x-menu.header/>
         </div>
 
         <div id="header-featured">

@@ -467,44 +467,28 @@ ul.contact li a.icon-rss:before
 /* Menu                                                                          */
 /*********************************************************************************/
 
-#menu
-{
-	position: absolute;
-	right: 0;
-	top: 6em;
-}
 
-#menu ul
+#menu .list
 {
 	display: inline-block;
 }
 
-#menu li
+#menu .list .listItem
 {
 	display: block;
 	float: left;
 	text-align: center;
 }
 
-#menu li a, #menu li span
-{
-	display: inline-block;
-	margin-left: 1px;
-	padding: 1em 1.5em 1em 1.5em;
-	letter-spacing: 0.10em;
-	text-decoration: none;
-	font-size: 1em;
-	text-transform: uppercase;
-	outline: 0;
-	color: #FFF;
-}
-
-#menu .current_page_item a
+#menu .item .current_page_item
 {
 	background: #1757ae;
 	border-radius: 30px;
 	color: #FFF;
+	text-transform: uppercase;
 }
+
+
 
 /*********************************************************************************/
 /* Banner                                                                        */

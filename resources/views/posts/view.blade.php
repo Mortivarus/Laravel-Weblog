@@ -39,7 +39,7 @@
 			<h3>Comments</h3>
 		</div>
 
-		@foreach ($post->comments as $comment)
+		@foreach ($post->comments->sortByDesc('created_at') as $comment)
 			<x-comments.view :comment="$comment"/>
 		@endforeach
 	</x-content>

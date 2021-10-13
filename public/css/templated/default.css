@@ -80,17 +80,19 @@ a:hover
 	color: #FFFFFF;
 }
 
-.bg-gray-custom{
+.bg-gray-custom-1{
 	background-color: #464646;
 }
 
-.button-left{
-	float: left;
+.bg-gray-custom-2{
+	background-color: #2b2b2b;
 }
 
-.button-right{
-	float: right;
+.bg-gray-custom-3{
+	background-color: #757575;
 }
+
+
 
 
 /*********************************************************************************/
@@ -462,32 +464,6 @@ ul.contact li a.icon-rss:before
 	display: inline-block;
 	padding-right: 2em;
 }
-
-/*********************************************************************************/
-/* Menu                                                                          */
-/*********************************************************************************/
-
-
-#menu .list
-{
-	display: inline-block;
-}
-
-#menu .list .listItem
-{
-	display: block;
-	float: left;
-	text-align: center;
-}
-
-#menu .item .current_page_item
-{
-	background: #1757ae;
-	border-radius: 30px;
-	color: #FFF;
-	text-transform: uppercase;
-}
-
 
 
 /*********************************************************************************/

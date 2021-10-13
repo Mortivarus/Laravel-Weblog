@@ -4,7 +4,6 @@
 
     <x-dropdown :items="$posts" label="Authors"/>
 
-   
 
     <ul class="style1">
         @foreach ($posts as $post)

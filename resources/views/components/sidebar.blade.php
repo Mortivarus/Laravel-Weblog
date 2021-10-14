@@ -5,6 +5,13 @@
     <x-dropdown :items="$posts" label="Authors"/>
 
 
+
+@foreach ($posts as $post)
+
+    {{$post->author->name}}
+    
+@endforeach
+
     <ul class="style1">
         @foreach ($posts as $post)
             <li class="first">

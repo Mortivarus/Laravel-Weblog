@@ -13,6 +13,7 @@ class PostController extends Controller
         return view('index', [
             'posts' => Post::take(5)->latest()->get(),
             'categories' => Category::all()
+            // 'authors' => Post::author()->orderBy('name')
 
         ]);
     }
@@ -22,6 +23,7 @@ class PostController extends Controller
             'posts' => Post::take(5)->latest()->get(),
             'post' => $post,
             'categories' => Category::all()
+            // 'authors' => Post::author()->orderBy('name')
         ]);
     }
 

@@ -11,6 +11,7 @@
 	</x-content>
 
 	<x-sidebar :posts="$posts" :categories="$categories"/>
+
 </x-layout>
 
 

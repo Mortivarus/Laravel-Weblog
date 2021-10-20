@@ -12,7 +12,7 @@ class PostController extends Controller
     public function index(){
         return view('index', [
             'posts' => Post::take(5)->latest()->get(),
-            'categories' => Category::all()
+            'categories' => Category::all(),
             // 'authors' => Post::author()->orderBy('name')
 
         ]);

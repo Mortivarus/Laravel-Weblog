@@ -11,10 +11,8 @@ class PostController extends Controller
 {
     public function index(){
         return view('index', [
-            'posts' => Post::take(5)->latest()->get(),
+            'posts' => Post::latest()->with('category', 'author')->get(),
             'categories' => Category::all(),
-            // 'authors' => Post::author()->orderBy('name')
-
         ]);
     }
 
@@ -23,7 +21,6 @@ class PostController extends Controller
             'posts' => Post::take(5)->latest()->get(),
             'post' => $post,
             'categories' => Category::all()
-            // 'authors' => Post::author()->orderBy('name')
         ]);
     }
 

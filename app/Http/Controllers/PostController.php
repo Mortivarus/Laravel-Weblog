@@ -11,8 +11,7 @@ class PostController extends Controller
 {
     public function index(){
         return view('index', [
-            'posts' => Post::latest()->with('category', 'author')->get(),
-            'categories' => Category::all(),
+            'posts' => Post::latest()->paginate(5),
         ]);
     }
 
@@ -20,7 +19,6 @@ class PostController extends Controller
         return view('posts/view', compact('post'), [
             'posts' => Post::take(5)->latest()->get(),
             'post' => $post,
-            'categories' => Category::all()
         ]);
     }
 

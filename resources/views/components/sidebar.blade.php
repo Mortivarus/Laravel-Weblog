@@ -1,9 +1,6 @@
 <div id="sidebar">
     
-    <x-dropdown :items="$categories" label="Categories"/>
-
-    <x-dropdown :items="$posts" label="Authors"/>
-
+    <x-category-dropdown/>
 
     <ul class="style1">
         @foreach ($posts as $post)

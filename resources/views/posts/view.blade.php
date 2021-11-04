@@ -44,5 +44,5 @@
 		@endforeach
 	</x-content>
 
-	<x-sidebar :posts="$posts" :categories="$categories"/>
+	<x-sidebar-view/>
 </x-layout>

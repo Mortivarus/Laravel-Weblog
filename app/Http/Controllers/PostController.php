@@ -32,20 +32,13 @@ class PostController extends Controller
         return view('posts/create');
     }
 
-    public function store(){
-        request()->validate([
-            'title'=> 'required',
-            'excerpt'=> 'required',
-            'content'=> 'required'
-        ]);
+    public function store(StorePostRequest $request){
+        $validated = request()->validated();
 
-        Post::create([
-            'title'=> request('title'),
-            'excerpt'=> request('excerpt'),
-            'content'=> request('content'),
-            'user_id' => Auth::user()->id,
-            'category_id'=> 1
-        ]);
+        $validated['user_id'] = Auth::user()->id;
+        $validated['category_id'] = 1;
+        
+        Post::create($validated);
 
         return redirect()->route('posts.index'); //Re-direct to the main page
     }
@@ -74,6 +67,12 @@ class PostController extends Controller
         $post->delete();
         return redirect()->route('posts.index'); //Re-direct to the main page
 
+    }
+
+    public function categories(Category $category){
+        return view('categories/view', [
+            'category' => $category
+        ]);
     }
 
 }

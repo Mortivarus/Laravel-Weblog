@@ -32,15 +32,22 @@ class PostController extends Controller
         return view('posts/create');
     }
 
-    public function store(StorePostRequest $request){
-        $validated = request()->validated();
+    public function store(){
 
-        $validated['user_id'] = Auth::user()->id;
-        $validated['category_id'] = 1;
+        dump(request()->all());
+
+        $validated = request()->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'content' => 'required',
+            'category' => 'required'
+            ]);
         
-        Post::create($validated);
+        ddd($validated);
 
-        return redirect()->route('posts.index'); //Re-direct to the main page
+        // Post::create($validated);
+
+        // return redirect()->route('posts.index'); //Re-direct to the main page
     }
     
     public function edit(Post $post){

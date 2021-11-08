@@ -1,5 +1,5 @@
 <x-layout>
-    <form method="post" action="/posts" class="">
+    <form method="post" action="/posts" class="" enctype="multipart/form-data">
         @csrf
 
         <div>
@@ -8,6 +8,9 @@
         <div>
             <x-form.field name="excerpt" label="excerpt" required/>
         </div>
+        {{-- <div>
+            <x-form.image name="image" label="image"/>
+        </div> --}}
         <div>
             <x-form.field name="content" label="content" required/>
         </div>

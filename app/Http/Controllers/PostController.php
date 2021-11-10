@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -34,20 +35,20 @@ class PostController extends Controller
 
     public function store(){
 
-        dump(request()->all());
-
         $validated = request()->validate([
             'title' => 'required',
             'excerpt' => 'required',
             'content' => 'required',
-            'category' => 'required'
             ]);
         
-        ddd($validated);
+        
+        $validated['user_id'] = Auth::user()->id;
+        $validated['category_id'] = 1;
 
-        // Post::create($validated);
 
-        // return redirect()->route('posts.index'); //Re-direct to the main page
+        Post::create($validated);
+
+        return redirect()->route('posts.index'); //Re-direct to the main page
     }
     
     public function edit(Post $post){

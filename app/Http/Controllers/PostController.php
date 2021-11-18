@@ -30,25 +30,28 @@ class PostController extends Controller
     }
 
     public function create(){
-        return view('posts/create');
+        return view('posts/create', [
+            'categories' => Category::get()->sortBy('name')
+        ]);
     }
 
     public function store(){
+        return dd(request());
 
-        $validated = request()->validate([
-            'title' => 'required',
-            'excerpt' => 'required',
-            'content' => 'required',
-            ]);
+        // $validated = request()->validate([
+        //     'title' => 'required',
+        //     'excerpt' => 'required',
+        //     'content' => 'required',
+        //     ]);
         
         
-        $validated['user_id'] = Auth::user()->id;
-        $validated['category_id'] = 1;
+        // $validated['user_id'] = Auth::user()->id;
+        // $validated['category_id'] = 1;
 
 
-        Post::create($validated);
+        // Post::create($validated);
 
-        return redirect()->route('posts.index'); //Re-direct to the main page
+        // return redirect()->route('posts.index'); //Re-direct to the main page
     }
     
     public function edit(Post $post){

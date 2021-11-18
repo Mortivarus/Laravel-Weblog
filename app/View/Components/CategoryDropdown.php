@@ -23,7 +23,7 @@ class CategoryDropdown extends Component
     public function render()
     {
         return view('components.category-dropdown', [
-            'categories' => Category::all()
+            'categories' => Category::get()->sortBy('name')
         ]);
     }
 }

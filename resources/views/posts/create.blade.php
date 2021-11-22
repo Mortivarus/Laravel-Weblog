@@ -14,15 +14,20 @@
         <div>
             <x-form.field name="content" label="content" required/>
         </div>
-        <div>
-            <x-form.input name="category" label="category" required/>
-        </div>
 
         <div>
             <x-form.dropdown name="category" label="category" :collection="$categories"/>
         </div>
         
         <x-button>Submit</x-button>
+
+    </form>
+
+    <form method="post" action="/category" class="pt-4">
+    @csrf
+        <div>
+            <x-form.input name="addcategory" label="add a category"   />
+        </div>
 
     </form>
 </x-layout>

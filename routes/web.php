@@ -26,7 +26,13 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.
 
 Route::get('/search', [PostController::class, 'search'])->name('posts.search');
 
-Route::get('categories/{category}', [PostController::class, 'categories'])->name('posts.category');
+Route::get('/categories/{category}', [PostController::class, 'categories'])->name('posts.category');
+
+
+//Categories links
+
+Route::post('/categories', [CategoryController::class, 'store'])->name('categories.create');
+
 
 //Comments links
 

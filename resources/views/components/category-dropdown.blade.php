@@ -1,7 +1,7 @@
 <div class="relative flex lg:inline-flex items-center bg-gray-custom-1 rounded-xl w-40 my-2">
-    <div x-data="{ show:false }">
+    <div x-data="{ show:false }" @click.away="show = false">
         <button @click="show = !show" class="text-white px-10">Categories</button>
-            <div x-show="show"  class="absolute bg-gray-custom-3 w-full rounded-xl" style="display:none">
+            <div x-show="show"  class="absolute bg-gray-custom-3 w-full rounded-xl max-h-52 overflow-auto" style="display:none">
                 @foreach ($categories->sortBy('name') as $item)
                     <div class="flex flex-row leading-7">
                         <div>

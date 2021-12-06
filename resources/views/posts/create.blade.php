@@ -8,9 +8,9 @@
         <div>
             <x-form.field name="excerpt" label="excerpt" required/>
         </div>
-        {{-- <div>
+        <div>
             <x-form.image name="image" label="image"/>
-        </div> --}}
+        </div>
         <div>
             <x-form.field name="content" label="content" required/>
         </div>

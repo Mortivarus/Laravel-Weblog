@@ -37,8 +37,8 @@ class PostController extends Controller
 
     public function store(){
 
-        request()->file('image')->store('images');
-        return 'done';
+        $path = request()->file('image')->store('public/images');
+        return 'done' . $path;
 
         // $validated = request()->validate([
         //     'title' => 'required',

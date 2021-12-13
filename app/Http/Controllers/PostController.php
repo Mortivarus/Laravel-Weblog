@@ -36,21 +36,22 @@ class PostController extends Controller
     }
 
     public function store(){
-
-        $path = request()->file('image')->store('public/images');
-        return 'done' . $path;
-
-        // $validated = request()->validate([
-        //     'title' => 'required',
-        //     'excerpt' => 'required',
-        //     'content' => 'required',
-        //     ]);
+   
+        $validated = request()->validate([
+            'title' => 'required',
+            'image' => 'required|image',
+            'excerpt' => 'required',
+            'content' => 'required',
+            'category_id' => 'required|exists:categories,id'
+            ]);
         
         
         // $validated['user_id'] = Auth::user()->id;
-        // $validated['category_id'] = 1;
+        // $validated['image'] = request()->file('image')->store('public/images');
 
+        
 
+        dd($validated);
         // Post::create($validated);
 
         // return redirect()->route('posts.index'); //Re-direct to the main page

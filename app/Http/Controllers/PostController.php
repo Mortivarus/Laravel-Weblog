@@ -36,7 +36,7 @@ class PostController extends Controller
     }
 
     public function store(){
-   
+  
         $validated = request()->validate([
             'title' => 'required',
             'image' => 'required|image',
@@ -46,15 +46,14 @@ class PostController extends Controller
             ]);
         
         
-        // $validated['user_id'] = Auth::user()->id;
-        // $validated['image'] = request()->file('image')->store('public/images');
+        $validated['user_id'] = Auth::user()->id;
+        $validated['image'] = request()->file('image')->store('public/images');
 
         
 
-        dd($validated);
-        // Post::create($validated);
+        Post::create($validated);
 
-        // return redirect()->route('posts.index'); //Re-direct to the main page
+        return redirect()->route('posts.index'); //Re-direct to the main page
     }
     
     public function edit(Post $post){

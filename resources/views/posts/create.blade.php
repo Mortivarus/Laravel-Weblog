@@ -16,7 +16,7 @@
         </div>
 
         <div>
-            <x-form.dropdown name="category" label="category" :collection="$categories"/>
+            <x-form.dropdown name="category_id" label="category" :collection="$categories"/>
         </div>
         
         <x-button>Submit</x-button>

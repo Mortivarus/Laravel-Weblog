@@ -11,6 +11,9 @@
             <x-form.field name="excerpt" label="excerpt" :value="old('excerpt', $post->excerpt)" required/>
         </div>
         <div>
+            <x-form.image name="image" label="image"/>
+        </div>
+        <div>
             <x-form.field name="content" label="content" :value="old('content', $post->content)" required/>
         </div>
         <div>

@@ -5,7 +5,7 @@
 		</div>
 		<br>
 		<div class="roundimg">
-			<img src="/images/banner.jpg">
+			<img src="/{{$post->image}}">
 		</div>
 		<br>
 			<p>

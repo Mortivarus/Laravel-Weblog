@@ -47,7 +47,7 @@ class PostController extends Controller
         
         
         $validated['user_id'] = Auth::user()->id;
-        $validated['image'] = request()->file('image')->store('public/images');
+        $validated['image'] = request()->file('image')->store('public/storage/images');
 
         
 

@@ -23,12 +23,13 @@
 
     </form>
 
-    <form method="post" action="/category" class="pt-4">
+    <form method="post" action="/categories" class="pt-4">
     @csrf
         <div>
-            <x-form.input name="addcategory" label="add a category"   />
+            <x-form.input name="name" label="add a category"   />
         </div>
 
+        <x-button>Save Category</x-button>
     </form>
 </x-layout>
 

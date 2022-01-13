@@ -5,7 +5,7 @@
 		</div>
 		<br>
 		<div class="roundimg">
-			<img src="/{{$post->image}}">
+			<img src="{{asset($post->image)}}">
 		</div>
 		<br>
 			<p>

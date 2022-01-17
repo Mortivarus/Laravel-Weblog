@@ -3,11 +3,15 @@
 		<div class="text-3xl">
 			<h1>{{$post->title}}</h1>
 		</div>
-		<br>
-		<div class="roundimg">
-			<img src="{{asset($post->image)}}">
-		</div>
-		<br>
+		
+		@isset($post->image)
+			<br>
+			<div class="roundimg">
+				<img src="{{asset($post->image)}}">
+			</div>
+		@endisset
+			
+			<br>
 			<p>
 				{{$post->content}}
 			</p>

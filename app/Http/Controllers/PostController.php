@@ -35,22 +35,22 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(){
+    public function store(Request $request){
   
         $validated = request()->validate([
             'title' => 'required',
-            'image' => 'required|image',
+            'image' => 'image',
             'excerpt' => 'required',
             'content' => 'required',
             'category_id' => 'required|exists:categories,id'
             ]);
         
-        
         $validated['user_id'] = Auth::user()->id;
-        $validated['image'] = request()->file('image')->store('images');
 
+        if($request->has('image')){
+            $validated['image'] = 'storage/'. request()->file('image')->store('images');
+        }
         
-
         Post::create($validated);
 
         return redirect()->route('posts.index'); //Re-direct to the main page

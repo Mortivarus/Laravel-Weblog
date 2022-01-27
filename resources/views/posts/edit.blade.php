@@ -1,6 +1,6 @@
 <x-layout>
     <h1>Edit Post</h1>
-    <form method="post" action="/posts/{{ $post->id }}" class="my-2">
+    <form method="post" action="/posts/{{ $post->id }}" class="my-2" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
 
@@ -17,7 +17,7 @@
             <x-form.field name="content" label="content" :value="old('content', $post->content)" required/>
         </div>
         <div>
-            <x-form.input name="category" label="category" :value="old('category', $post->category->name)" required/>
+            <x-form.dropdown name="category_id" label="category" :collection="$categories"/>
         </div>
 
         <x-button>Submit</x-button>

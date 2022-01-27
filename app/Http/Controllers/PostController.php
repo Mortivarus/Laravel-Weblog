@@ -38,9 +38,9 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request){
         
-        $validated = $request->validated();
+        $validated = $request->validated(); //Store validated data 
         
-        $validated['user_id'] = Auth::user()->id;
+        $validated['user_id'] = Auth::user()->id; //Add the user ID to 
 
         if($request->has('image')){
             $validated['image'] = 'storage/'. request()->file('image')->store('images');
@@ -52,26 +52,17 @@ class PostController extends Controller
     }
     
     public function edit(Post $post){
-        return view('posts/edit', compact('post'));
+        return view('posts/edit', compact('post'),
+        [
+            'categories' => Category::get()->sortBy('name')
+        ]);
     }
 
-    public function update(StorePostRequest $request){
-        
-        dd($request);
-        // request()->validate([
-        //     'title'=> 'required',
-        //     'excerpt'=> 'required',
-        //     'content'=> 'required',
-        //     'category_id' => 'required|exists:categories,id'
-        // ]);
+    public function update(Post $post, StorePostRequest $request){
+        $validated = $request->validated();    //Store validated data 
+        $post->update($validated);             //Update the post
 
-        // $post->update([
-        //     'title'=> request('title'),
-        //     'excerpt'=> request('excerpt'),
-        //     'content'=> request('content'),
-        // ]);
-
-        // return redirect()->route('posts.index'); //Re-direct to the main page
+        return redirect()->route('posts.index'); //Re-direct to the main page
     }
 
     public function destroy(Post $post){

@@ -7,6 +7,31 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\CategoryController;
 
+//Mailchimp API
+
+Route::get('ping', function(){
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => config('services.mailchimp.prefix')
+    ]);
+
+    $response = $mailchimp->ping->get();
+    print_r($response);
+});
+
+
+
+
+
+
+
+
+
+
+
+
 //Posts links
 Route::get('/', [PostController::class, 'index'])->name('posts.index'); //Land on the index
 

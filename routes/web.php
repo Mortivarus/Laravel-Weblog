@@ -9,7 +9,10 @@ use App\Http\Controllers\CategoryController;
 
 //Mailchimp API
 
-Route::get('ping', function(){
+Route::post('/newsletter', function(){
+
+    request()->validate(['email' => 'required|email']);
+
     $mailchimp = new \MailchimpMarketing\ApiClient();
 
     $mailchimp->setConfig([
@@ -17,8 +20,12 @@ Route::get('ping', function(){
         'server' => config('services.mailchimp.prefix')
     ]);
 
-    $response = $mailchimp->ping->get();
-    print_r($response);
+    $response = $mailchimp->lists->addListMember("b837331dc3", [
+        'email_address' => request('email'),
+        'status' => 'subscribed'
+    ]);
+
+   return redirect()->route('posts.index')->with('success', 'You are now signed up for our newsletter!');
 });
 
 

@@ -24,6 +24,12 @@
             <div id="banner" class="container">
                 <h2>Charlie's Blog</h2>
                 <p>This is a simple blog written by a simple-minded person. Have a nice day :)</p>
+                <form  method="post" action="/newsletter">
+                    @csrf
+                    <x-form.input name="email" label="">Subscribe to Keemstar! </x-form.input>
+                
+                    <x-button>Submit</x-button>
+                </form>
             </div>
         </div>
 

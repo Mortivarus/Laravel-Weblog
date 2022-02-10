@@ -25,7 +25,7 @@ Route::post('/newsletter', function(){
         'status' => 'subscribed'
     ]);
 
-   return redirect()->route('posts.index')->with('success', 'You are now signed up for our newsletter!');
+   return redirect()->back()->with('success', 'You are now signed up for our newsletter!');
 });
 
 

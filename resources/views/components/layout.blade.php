@@ -24,12 +24,6 @@
             <div id="banner" class="container">
                 <h2>Charlie's Blog</h2>
                 <p>This is a simple blog written by a simple-minded person. Have a nice day :)</p>
-                <form  method="post" action="/newsletter">
-                    @csrf
-                    <x-form.input name="email" label="">Subscribe to Keemstar! </x-form.input>
-                
-                    <x-button>Submit</x-button>
-                </form>
             </div>
         </div>
 
@@ -42,6 +36,19 @@
         </div>
 
         <div id="copyright" class="container">
+            <div>
+                <form  method="post" action="/newsletter">
+                    @csrf
+
+                    <div class="flex flex-row">
+                        <div class="basis-4">
+                            <x-form.newsletter name="email" label="Subscribe to our newsletter!"/>
+                        </div>
+                    </div>
+                    
+                
+                </form>
+            </div>
             <p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by TEMPLATED.</p>
         </div>
     </body>

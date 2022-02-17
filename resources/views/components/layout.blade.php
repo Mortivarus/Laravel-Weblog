@@ -28,6 +28,7 @@
         </div>
 
         <x-success-flash/>
+        <x-error-flash name="email"/>
 
         <div id="wrapper">
             <div id="page" class="container">
@@ -36,20 +37,19 @@
         </div>
 
         <div id="copyright" class="container">
-            <div>
-                <form  method="post" action="/newsletter">
-                    @csrf
-
-                    <div class="flex flex-row">
-                        <div class="basis-4">
-                            <x-form.newsletter name="email" label="Subscribe to our newsletter!"/>
-                        </div>
-                    </div>
-                    
-                
-                </form>
+            <div class="flex justify-center items-center">
+                <div class="mx-4">
+                    <form  method="post" action="/newsletter">
+                        @csrf
+                            <div class="basis-4">
+                                <x-form.newsletter name="email" label="Subscribe to our newsletter!"/>
+                            </div>
+                    </form>
+                </div>
+                <div>
+                    <p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by TEMPLATED.</p>
+                </div>
             </div>
-            <p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by TEMPLATED.</p>
         </div>
     </body>
 </html>

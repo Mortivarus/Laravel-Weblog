@@ -1,8 +1,5 @@
 @props(['name', 'label']) 
 
-
-
-
 <div class="flex flex-row gap-2">
     <div>
         <input
@@ -16,7 +13,3 @@
         </button>
     </div>
 </div>
-
-
-<x-form.error name="{{$name}}"/> 
-

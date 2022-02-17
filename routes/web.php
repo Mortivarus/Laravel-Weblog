@@ -6,40 +6,12 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NewsletterController;
 
-//Mailchimp API
+//Newsletter
+Route::post('/newsletter', NewsletterController::class);
 
-Route::post('/newsletter', function(){
-
-    request()->validate(['email' => 'required|email']);
-
-    $mailchimp = new \MailchimpMarketing\ApiClient();
-
-    $mailchimp->setConfig([
-        'apiKey' => config('services.mailchimp.key'),
-        'server' => config('services.mailchimp.prefix')
-    ]);
-
-    $response = $mailchimp->lists->addListMember("b837331dc3", [
-        'email_address' => request('email'),
-        'status' => 'subscribed'
-    ]);
-
-   return redirect()->back()->with('success', 'You are now signed up for our newsletter!');
-});
-
-
-
-
-
-
-
-
-
-
-
-
-//Posts links
+//Posts
 Route::get('/', [PostController::class, 'index'])->name('posts.index'); //Land on the index
 
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create'); //Land on the 'create article' page
@@ -54,28 +26,24 @@ Route::patch('/posts/{post}', [PostController::class, 'update'])->name('posts.up
 
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy'); //Remove the article
 
-//Search links
-
+//Search
 Route::get('/search', [PostController::class, 'search'])->name('posts.search');
 
 Route::get('/categories/{category}', [PostController::class, 'categories'])->name('posts.category');
 
-
-//Categories links
-
+//Categories
 Route::post('/categories', [CategoryController::class, 'store'])->name('categories.create');
 
-
-//Comments links
-
+//Comments
 Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name('comments.create');
 
 
-
+//Register
 Route::get('register', [RegisterController::class, 'create'])->name('user.create')->middleware('guest');
 
 Route::post('register', [RegisterController::class, 'store'])->name('user.store')->middleware('guest');
 
+//Sessions
 Route::post('logout',[SessionsController::class, 'destroy'])->name('session.logout')->middleware('auth');
 
 Route::get('login', [SessionsController::class, 'create'])->name('session.create')->middleware('guest'); //

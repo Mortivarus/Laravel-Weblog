@@ -20,7 +20,7 @@ class PostController extends Controller
     public function view(Post $post){
         return view('posts/view', compact('post'), [
             'posts' => Post::take(5)->latest()->get(),
-            'post' => $post,
+            'post' => $post
         ]);
     }
 
@@ -34,6 +34,11 @@ class PostController extends Controller
         return view('posts/create', [
             'categories' => Category::get()->sortBy('name')
         ]);
+    }
+
+
+    public function test(){
+        return 'Well done';
     }
 
     public function store(StorePostRequest $request){

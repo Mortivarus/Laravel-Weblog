@@ -11,20 +11,21 @@ use App\Http\Controllers\NewsletterController;
 //Newsletter
 Route::post('/newsletter', NewsletterController::class);
 
-//Posts
+//Posts (admin)
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create')->middleware('admin'); //Land on the 'create article' page
+
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store')->middleware('admin'); //Send a POST request to add the article
+
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit')->middleware('admin'); //Land on the 'edit' page of the right article 
+
+Route::patch('/posts/{post}', [PostController::class, 'update'])->name('posts.update')->middleware('admin'); //Store the edited article
+
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy')->middleware('admin'); //Remove the article
+
+//Posts (guest)
 Route::get('/', [PostController::class, 'index'])->name('posts.index'); //Land on the index
 
-Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create'); //Land on the 'create article' page
-
 Route::get('/posts/{post}', [PostController::class, 'view'])->name('posts.view'); //Land on the 'view' page of the right article 
-
-Route::post('/posts', [PostController::class, 'store'])->name('posts.store'); //Send a POST request to add the article
-
-Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit'); //Land on the 'edit' page of the right article 
-
-Route::patch('/posts/{post}', [PostController::class, 'update'])->name('posts.update'); //Store the edited article
-
-Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy'); //Remove the article
 
 //Search
 Route::get('/search', [PostController::class, 'search'])->name('posts.search');
@@ -32,11 +33,10 @@ Route::get('/search', [PostController::class, 'search'])->name('posts.search');
 Route::get('/categories/{category}', [PostController::class, 'categories'])->name('posts.category');
 
 //Categories
-Route::post('/categories', [CategoryController::class, 'store'])->name('categories.create');
+Route::post('/categories', [CategoryController::class, 'store'])->name('categories.create')->middleware('auth');
 
 //Comments
-Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name('comments.create');
-
+Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name('comments.create')->middleware('auth');
 
 //Register
 Route::get('register', [RegisterController::class, 'create'])->name('user.create')->middleware('guest');

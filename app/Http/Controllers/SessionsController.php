@@ -19,7 +19,7 @@ class SessionsController extends Controller{
         if(auth()->attempt($attributes)){
             session()->regenerate();
 
-            return redirect()->route('posts.index')->with('success', 'Welcome back, '. $attributes['username'] . '!');
+            return redirect()->route('posts.index')->with('success', 'Welcome back, '. ucfirst($attributes['username']) . '!');
         }
 
         return back()->withErrors(['password' => 'Your provided credentials could not be verified.']);

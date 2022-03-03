@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Requests\StorePostRequest;
+use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
 {
@@ -18,6 +19,7 @@ class PostController extends Controller
     }
 
     public function view(Post $post){
+
         return view('posts/view', compact('post'), [
             'posts' => Post::take(5)->latest()->get(),
             'post' => $post

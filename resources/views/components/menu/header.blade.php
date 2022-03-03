@@ -15,10 +15,12 @@
         </div>
     @endguest
 
-    @auth    
+    @if (Gate::allows(env('ADMIN_USERNAME')))
         <div class="block">
             <x-menu.item route="posts.create" name="Write Post"/>
         </div>
+    @endif
+    @auth    
         <div class="block">
             <x-menu.button/>
         </div>

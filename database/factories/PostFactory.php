@@ -29,7 +29,8 @@ class PostFactory extends Factory
             'category_id' => Category::factory(),
             'title' => $this->faker->sentence(),
             'excerpt' => implode($this->faker->paragraphs(2)),
-            'content' => implode($this->faker->paragraphs(6))
+            'content' => implode($this->faker->paragraphs(6)),
+            'premium' => FALSE
         ];
     }
 }

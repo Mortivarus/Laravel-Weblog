@@ -25,6 +25,9 @@ class RegisterController extends Controller
             'password' => 'required'
         ]);
 
+        $attributes['premium'] = FALSE;
+
+        
         $user = User::create($attributes);
 
         session()->flash('success', 'Your account has been created.');

@@ -18,7 +18,8 @@ class AdminSeeder extends Seeder
             'name' => env('ADMIN_USERNAME'),
             'username' => env('ADMIN_USERNAME'),
             'email' => env('ADMIN_EMAIL'),
-            'password' =>bcrypt(env('ADMIN_PASSWORD'))
+            'password' =>bcrypt(env('ADMIN_PASSWORD')),
+            'premium' => TRUE
         ]);
     }
 }

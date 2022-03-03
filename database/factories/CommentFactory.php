@@ -24,9 +24,9 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'post_id' => 3,
-            'user_id' => 15,
-            'content' => "blablablabla"
+            'post_id' => 1,
+            'user_id' => 2,
+            'content' => implode($this->faker->paragraphs(3))
         ];
     }
 }

@@ -13,24 +13,65 @@ use Illuminate\Support\Facades\Gate;
 class PostController extends Controller
 {
     public function index(){
+
+        // if(Auth::check() ||Auth::user()->premium){
+            
+        // } else{
+        //     return view('index', [
+        //         'posts' => Post::where('premium', '=', false)->latest()->paginate()
+        //     ]);
+        // }
+
+        // if(Auth::check()){
+        //     if(Auth::user()->premium){
+        //         return view('index', [
+        //             'posts' => Post::latest()->paginate(5)
+        //         ]);
+        //     }
+        // }
+
+        $posts = Post::where('premium', true);
+
         return view('index', [
-            'posts' => Post::latest()->paginate(5),
+            'posts' => Post::where('premium', true)->get()
         ]);
+
+        // $posts = Post::where('premium', true)->paginate();
+
+        // foreach($posts as $post){
+        //     echo $post->title;
+        //     echo "<br>";
+        //     echo $post->premium? 'True':'False';
+        //     echo "<br>";
+        // }
+
+
+        // dd($post);
+        
+        
     }
 
     public function view(Post $post){
+        // if(Auth::user()->premium){
+        //     return view('posts/view', compact('post'), [
+        //         'posts' => Post::take(5)->latest()->get(),
+        //         'post' => $post
+        //     ]);
+        // } else{
+        //     return view('posts/view', compact('post'), [
+        //         'posts' => Post::where('premium', '=', false)->take(5)->latest()->get(),
+        //         'post' => $post
+        //     ]);
+        // }
 
-        return view('posts/view', compact('post'), [
-            'posts' => Post::take(5)->latest()->get(),
-            'post' => $post
-        ]);
+        
     }
 
-    public function search(Post $post){
-        return view('search/view', [
-            'posts' => Post::latest()->get()
-        ]);
-    }
+    // public function search(Post $post){
+    //     return view('search/view', [
+    //         'posts' => Post::latest()->get()
+    //     ]);
+    // }
 
     public function create(){
         return view('posts/create', [
@@ -44,6 +85,7 @@ class PostController extends Controller
     }
 
     public function store(StorePostRequest $request){
+
         
         $validated = $request->validated(); //Store validated data 
         
@@ -51,6 +93,12 @@ class PostController extends Controller
 
         if($request->has('image')){
             $validated['image'] = 'storage/'. request()->file('image')->store('images');
+        }
+
+        if($request->has('premium')){
+            $validated['premium'] = TRUE;
+        } else{
+            $validated['premium'] = FALSE;
         }
 
         Post::create($validated);
@@ -84,4 +132,5 @@ class PostController extends Controller
         ]);
     }
 
+    
 }

@@ -16,7 +16,8 @@
 				{{$post->content}}
 			</p>
 			<br>
-		<strong>By {{$post->author->name}}, Category: {{$post->category->name}}</strong><br><br>
+		<strong>By {{$post->author->name}}, Category: {{$post->category->name}}, Premium: {{$post->premium? 'True': 'False'}}</strong><br><br>
+		
 	
 	
 	@auth

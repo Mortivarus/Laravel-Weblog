@@ -16,7 +16,7 @@ class AdminCheck
      */
     public function handle(Request $request, Closure $next)
     { 
-        if(auth()->user()?->username !== 'admin'){
+        if(auth()->user()?->username !== env('ADMIN_USERNAME')){
             abort(403);
         }
         return $next($request);

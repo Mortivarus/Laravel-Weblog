@@ -14,11 +14,15 @@
         <div>
             <x-form.field name="content" label="content" required/>
         </div>
-
         <div>
             <x-form.dropdown name="category_id" label="category" :collection="$categories"/>
         </div>
+        <div>
+            <x-form.checkbox name="premium" label="Set to Premium"/>
+        </div>
         
+
+
         <x-button>Submit</x-button>
 
     </form>

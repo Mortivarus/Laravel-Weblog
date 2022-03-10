@@ -12,9 +12,10 @@ use App\Http\Controllers\NewsletterController;
 Route::post('/newsletter', NewsletterController::class);
 
 //Posts (admin)
-Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create')->middleware('admin'); //Land on the 'create article' page
 
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store')->middleware('admin'); //Send a POST request to add the article
+
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create')->middleware('admin'); //Land on the 'create article' page
 
 Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit')->middleware('admin'); //Land on the 'edit' page of the right article 
 

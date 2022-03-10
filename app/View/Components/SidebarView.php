@@ -24,8 +24,9 @@ class SidebarView extends Component
      */
     public function render()
     {
-        return view('components.sidebar-view',[
-            'posts' => Post::latest()->paginate(5)
-        ]);
+        return;
+        // return view('components.sidebar-view',[
+        //     'posts' => Post::latest()->paginate(5)
+        // ]);
     }
 }

@@ -2,10 +2,6 @@
     
     <x-category-dropdown/>
 
-
-    {{dump($posts)}}
-
-
     <ul class="style1">
         @foreach ($posts as $post)
             <li class="first">
@@ -15,4 +11,5 @@
             </li>
         @endforeach
     </ul>
+    {{ $posts->onEachSide(3)->links() }}
 </div>

@@ -54,7 +54,7 @@ a:hover
 .container
 {
 	margin: 0px auto;
-	width: 1200px;
+	width: 1400px;
 }
 
 /*********************************************************************************/
@@ -557,7 +557,7 @@ ul.contact li a.icon-rss:before
 	#sidebar
 	{
 		float: right;
-		width: 450px;
+		width: 640px;
 	}
 
 	#stwo-col

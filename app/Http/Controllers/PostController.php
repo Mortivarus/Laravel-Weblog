@@ -13,42 +13,7 @@ use Illuminate\Support\Facades\Gate;
 class PostController extends Controller
 {
     public function index(){
-
-        // if(Auth::check() ||Auth::user()->premium){
-            
-        // } else{
-        //     return view('index', [
-        //         'posts' => Post::where('premium', '=', false)->latest()->paginate()
-        //     ]);
-        // }
-
-        // if(Auth::check()){
-        //     if(Auth::user()->premium){
-        //         return view('index', [
-        //             'posts' => Post::latest()->paginate(5)
-        //         ]);
-        //     }
-        // }
-
-        $posts = Post::where('premium', true);
-
-        return view('index', [
-            'posts' => Post::where('premium', true)->get()
-        ]);
-
-        // $posts = Post::where('premium', true)->paginate();
-
-        // foreach($posts as $post){
-        //     echo $post->title;
-        //     echo "<br>";
-        //     echo $post->premium? 'True':'False';
-        //     echo "<br>";
-        // }
-
-
-        // dd($post);
-        
-        
+        return view('index');        
     }
 
     public function view(Post $post){

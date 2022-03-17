@@ -17,26 +17,35 @@ class PostController extends Controller
     }
 
     public function view(Post $post){
-        // if(Auth::user()->premium){
-        //     return view('posts/view', compact('post'), [
-        //         'posts' => Post::take(5)->latest()->get(),
-        //         'post' => $post
-        //     ]);
-        // } else{
-        //     return view('posts/view', compact('post'), [
-        //         'posts' => Post::where('premium', '=', false)->take(5)->latest()->get(),
-        //         'post' => $post
-        //     ]);
-        // }
+        //Check if the post is premium. If not, return view. If so, check if the user is logged in and premium. If this is the case, return the view. If not, return 403
+        if($post->premium){
+            if(Auth::check() && Auth::user()->premium){
+                return view('posts/view', compact('post'), [
+                    'post' => $post
+                ]);
+            }
+            abort(403);
+        }
 
+        return view('posts/view', compact('post'), [
+            'post' => $post
+        ]);
         
     }
 
-    // public function search(Post $post){
-    //     return view('search/view', [
-    //         'posts' => Post::latest()->get()
-    //     ]);
-    // }
+    public function search(Post $post){
+        if(Auth::check()){
+            if(Auth::user()->premium){
+                return view('search/view',[
+                    'posts' => Post::latest()
+                ]);
+            }
+        }
+
+        return view('search/view',[
+            'posts' => Post::where('premium', false)->latest()
+        ]);
+    }
 
     public function create(){
         return view('posts/create', [
@@ -44,7 +53,7 @@ class PostController extends Controller
         ]);
     }
 
-
+    
     public function test(){
         return 'Well done';
     }

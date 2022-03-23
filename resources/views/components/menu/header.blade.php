@@ -20,7 +20,10 @@
             <x-menu.item route="posts.create" name="Write Post"/>
         </div>
     @endif
-    @auth    
+    @auth
+        <div class="block">
+            <x-menu.item route="premium.view" name="Premium"/>
+        </div>
         <div class="block">
             <x-menu.button/>
         </div>

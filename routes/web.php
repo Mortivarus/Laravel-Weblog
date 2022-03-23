@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\PremiumController;
 
 //Newsletter
 Route::post('/newsletter', NewsletterController::class);
@@ -43,6 +44,12 @@ Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name(
 Route::get('register', [RegisterController::class, 'create'])->name('user.create')->middleware('guest');
 
 Route::post('register', [RegisterController::class, 'store'])->name('user.store')->middleware('guest');
+
+//Premium
+
+Route::get('premium', [PremiumController::class, 'view'])->name('premium.view')->middleware('auth');
+
+Route::post('premium', [PremiumController::class, 'store'])->name('premium.store')->middleware('auth');
 
 //Sessions
 Route::post('logout',[SessionsController::class, 'destroy'])->name('session.logout')->middleware('auth');

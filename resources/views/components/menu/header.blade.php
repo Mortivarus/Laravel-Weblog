@@ -2,9 +2,6 @@
     <div class="block">
         <x-menu.item route="posts.index" name="Home"/>
     </div>
-    <div class="block">
-        <x-menu.item route="posts.search" name="Search"/>
-    </div>
 
     @guest    
         <div class="block">

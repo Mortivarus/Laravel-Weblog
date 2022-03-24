@@ -1,3 +1,32 @@
+Blog project based on Laravel. Users can read and comment on posts written by the administrator. Posts can be toggled to premium, so that only premium users can see it. Bear in mind that the 'premium' page currently allows any user to make themselves premium, as a placeholder for a payment system. 
+
+The newspaper works through mailchimp, and has options for your key, prefix and list. 
+
+## Installation
+
+First clone this repository, install the dependencies, and setup your .env file.
+
+```
+git clone git@github.com/Mortivarus/Laravel-Weblog.git laravel_weblog
+composer install
+cp .env.example .env
+```
+
+Then create the necessary database.
+
+```
+php artisan db
+create database laravel_weblog
+```
+
+And run the initial migrations and seeders. This includes seeding a default admin account 
+
+```
+php artisan migrate --seed
+```
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">

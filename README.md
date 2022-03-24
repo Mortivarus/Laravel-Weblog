@@ -19,7 +19,7 @@ php artisan db
 create database laravel_weblog
 ```
 
-And run the initial migrations and seeders. This includes seeding a default admin account 
+And run the initial migrations and seeders. This includes seeding a default admin account. The default login, password and email for the admin can be configured in the .env file. By default, the username and password is 'admin'.
 
 ```
 php artisan migrate --seed

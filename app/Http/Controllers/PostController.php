@@ -33,19 +33,19 @@ class PostController extends Controller
         
     }
 
-    public function search(Post $post){
-        if(Auth::check()){
-            if(Auth::user()->premium){
-                return view('search/view',[
-                    'posts' => Post::latest()
-                ]);
-            }
-        }
+    // public function search(Post $post){
+    //     if(Auth::check()){
+    //         if(Auth::user()->premium){
+    //             return view('search/view',[
+    //                 'posts' => Post::latest()
+    //             ]);
+    //         }
+    //     }
 
-        return view('search/view',[
-            'posts' => Post::where('premium', false)->latest()
-        ]);
-    }
+    //     return view('search/view',[
+    //         'posts' => Post::where('premium', false)->latest()
+    //     ]);
+    //}
 
     public function create(){
         return view('posts/create', [
@@ -53,17 +53,12 @@ class PostController extends Controller
         ]);
     }
 
-    
-    public function test(){
-        return 'Well done';
-    }
-
     public function store(StorePostRequest $request){
 
         
         $validated = $request->validated(); //Store validated data 
         
-        $validated['user_id'] = Auth::user()->id; //Add the user ID to 
+        $validated['user_id'] = Auth::user()->id; //Add the user ID to validated data
 
         if($request->has('image')){
             $validated['image'] = 'storage/'. request()->file('image')->store('images');

@@ -30,7 +30,7 @@ Route::get('/', [PostController::class, 'index'])->name('posts.index'); //Land o
 Route::get('/posts/{post}', [PostController::class, 'view'])->name('posts.view'); //Land on the 'view' page of the right article 
 
 //Search
-Route::get('/search', [PostController::class, 'search'])->name('posts.search');
+// Route::get('/search', [PostController::class, 'search'])->name('posts.search');
 
 Route::get('/categories/{category}', [PostController::class, 'categories'])->name('posts.category');
 

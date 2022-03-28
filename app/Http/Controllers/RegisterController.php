@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+// CR :: uses die je niet gebruikt opruimen!!
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -13,21 +14,24 @@ class RegisterController extends Controller
 {
     //
 
-    public function create(){
+    public function create()
+    {
         return view('register/create');
     }
 
-    public function store(){
+    public function store()
+    {
+        // CR :: Formvalidation zou ik in een eigen request zetten
         $attributes = request()->validate([   //Validate register input
-            'name'=> 'required|unique:users,name',
-            'username'=> 'required|unique:users,username',
-            'email'=> 'required|email',
+            'name' => 'required|unique:users,name',
+            'username' => 'required|unique:users,username',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
 
         $attributes['premium'] = FALSE;
 
-        
+
         $user = User::create($attributes);
 
         session()->flash('success', 'Your account has been created.');

@@ -1,4 +1,5 @@
 <?php
+// CR :: deze wordt niet gebruikt, mag dus weg
 
 namespace App\Models;
 

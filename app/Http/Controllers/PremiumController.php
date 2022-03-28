@@ -2,21 +2,25 @@
 
 namespace App\Http\Controllers;
 
+// CR :: uses die je niet gebruikt opruimen
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class PremiumController extends Controller
 {
-    public function view(){
+    public function view()
+    {
         return view('users/premium');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         $user = Auth::user();
 
-        if($request->has('premium')){
+        // CR :: onderstaande kan korter, kijk naar je PostController voor een voorbeeld
+        if ($request->has('premium')) {
             $user['premium'] = TRUE;
         } else {
             $user['premium'] = FALSE;
